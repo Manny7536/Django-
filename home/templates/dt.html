@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <style>
+        table {
+  border-collapse: collapse;
+}
+        table, th, td {
+  border: 1.5px solid #000000;
+}
+        th, td {
+  padding: 10px;
+}
+    </style>
+</head>
+<body>
+{#{{ students }}#}
+<h1>Django Dynamic Data Rendering</h1>
+<hr>
+<br>
+<br>
+<a href='/'>Home</a>
+<table>
+    <tr>
+        <th>S.N</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Student ID</th>
+        <th>Marks</th>
+        <th>Results</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.ID }}</td>
+        <td>{{ student.Marks }}</td>
+        <td>
+            {% if student.Marks >= 80 %}
+                Passed with distinction.
+            {% elif student.Marks >= 70 and student.Marks <= 79 %}
+                Passed without First Division.
+            {% elif student.Marks >= 50 and student.Marks <= 69 %}
+                Passed without Second Division.
+            {% elif student.Marks >= 40 and student.Marks <= 49 %}
+                Passed without Third Division.
+            {% else %}
+                Failed
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

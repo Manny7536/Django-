@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Table</title>
-    <style>
-        table {
-  border-collapse: collapse;
-}
-        table, th, td {
-  border: 1.5px solid #000000;
-}
-        th, td {
-  padding: 10px;
-}
-    </style>
-</head>
-<body>
-{#{{ students }}#}
-<h1>Django Dynamic Data Rendering</h1>
-<hr>
-<br>
-<br>
+{% extends 'base.html' %}
+{% block start %}
 <a href='/'>Home</a>
 <table>
     <tr>
@@ -54,5 +33,4 @@
     </tr>
     {% endfor %}
 </table>
-</body>
-</html>
+{% endblock %}

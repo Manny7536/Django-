@@ -4,7 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    context = {'page':'home'}
+    return render(request, 'index.html', context)
 
 def results(request):
     students=[
@@ -15,4 +16,4 @@ def results(request):
         {'name': 'Priyanshu Gajurel', 'age': 20, 'ID': '10078','Marks': 75 },
         {'name': 'Ram ', 'age': 23, 'ID': '10099','Marks': 39 },
     ]
-    return render(request, 'dt.html', context={'students':students} )
+    return render(request, 'dt.html', context={'students':students, 'page':'results'} )
